@@ -1,8 +1,8 @@
 import pygame
 
 import GameMenu
-# from Ringue import *
-# from VersusScreen import *
+import Ringue
+import VersusScreen
 
 
 class ContrEstados(object):
@@ -23,18 +23,18 @@ class ContrEstados(object):
         if self.retorno:
             # Retorna algo quando a partida acaba
             # ou quando o jogador sai do menu
-            if self.Tela.__class__ == GameMenu:
-                if self.retorno:
+            if isinstance(self.Tela, GameMenu.GameMenu):
+                if self.retorno == True:
                     return True
                 else:
                     self.Tela.unload()
-                    # self.Tela = VersusScreen(self.retorno)
-            # elif self.Tela.__class__ == Ringue:
-            #     self.Tela.unload()
-            #     self.Tela = GameMenu.GameMenu(self.retorno)
-            # elif self.Tela.__class__ == VersusScreen:
-            #     self.Tela.unload()
-            #     self.Tela = Ringue(self.retorno)
+                    self.Tela = VersusScreen.VersusScreen(self.retorno)
+            elif isinstance(self.Tela, Ringue.Ringue):
+                self.Tela.unload()
+                self.Tela = GameMenu.GameMenu(self.retorno)
+            elif isinstance(self.Tela, VersusScreen.VersusScreen):
+                self.Tela.unload()
+                self.Tela = Ringue.Ringue(self.retorno)
 
         return False
 
