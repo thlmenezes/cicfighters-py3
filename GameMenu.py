@@ -35,11 +35,11 @@ class GameMenu(object):
         """Inicializa elementos do menu"""
         self.width = pygame.display.get_surface().get_width()
         self.height = pygame.display.get_surface().get_height()
-        pygame.mixer.Sound(os.path.join('.', 'Sons', "entradamenu.wav")).play()
-        pygame.mixer.music.load(os.path.join('.', 'Musicas', 'menu.mp3'))
+        pygame.mixer.Sound(os.path.join('.','assets', 'Sons', "entradamenu.wav")).play()
+        pygame.mixer.music.load(os.path.join('.','assets', 'Musicas', 'menu.mp3'))
         pygame.mixer.music.set_volume(0.3)
         pygame.mixer.music.play(-1)
-        self.font = pygame.font.Font(os.path.join('.', 'Imagens', "fonte.ttf"),
+        self.font = pygame.font.Font(os.path.join('.','assets', 'Imagens', "fonte.ttf"),
                                      int(self.height*0.08))
         retratos = []
         linha = []
@@ -50,7 +50,7 @@ class GameMenu(object):
         self.configcontrole = 0
         # define posicoes dos retratos na tela
         for i in [string for string in
-                  os.listdir(os.path.join('.', 'Personagens'))
+                  os.listdir(os.path.join('.','assets', 'Personagens'))
                   if not string.startswith(".")]:
             x = pos[0]
             y = pos[1]
@@ -73,7 +73,7 @@ class GameMenu(object):
         self.selecionadop1 = [0, 0]
         self.selecionadop2 = [0, 0]
         self.numcolunas = int((self.width-50)/120)
-        self.fundo = Sprite.Sprite(os.path.join('.', 'Imagens', 'menu.png'),
+        self.fundo = Sprite.Sprite(os.path.join('.','assets', 'Imagens', 'menu.png'),
                                    (0,0), 0, (self.width, self.height))
         self.botoesp1 = jogadores[2]
         self.botoesp2 = jogadores[3]
@@ -250,20 +250,20 @@ class Retrato(object):
     """ Retrato de personagem na tela de selecao """
     def __init__(self,nome,coords):
         x,y = coords
-        self.sprite = Sprite.Sprite(os.path.join('.','Personagens',nome,'retrato.png'),(90,120),1.5)
+        self.sprite = Sprite.Sprite(os.path.join('.','assets','Personagens',nome,'retrato.png'),(90,120),1.5)
         self.x = x
         self.y = y
         self.nome = nome
-        self.font = pygame.font.Font(os.path.join('.','Imagens',"fonte.ttf"), 20)
+        self.font = pygame.font.Font(os.path.join('.','assets','Imagens',"fonte.ttf"), 20)
         self.selecionadop1 = False
         self.selecionadop2 = False
         self.escolhidop1 = False
         self.escolhidop2 = False
         self.cor = 155
         self.incrcor = 5
-        self.somseleciona = pygame.mixer.Sound(os.path.join('.','Sons',"seleciona.wav"))
-        self.somescolhejogador = pygame.mixer.Sound(os.path.join('.',"Personagens",self.nome,"escolhe.wav"))
-        self.somescolhe = pygame.mixer.Sound(os.path.join('.',"Sons","escolhe.wav"))
+        self.somseleciona = pygame.mixer.Sound(os.path.join('.','assets','Sons',"seleciona.wav"))
+        self.somescolhejogador = pygame.mixer.Sound(os.path.join('.','assets',"Personagens",self.nome,"escolhe.wav"))
+        self.somescolhe = pygame.mixer.Sound(os.path.join('.','assets',"Sons","escolhe.wav"))
 
     def update(self,dtempo):
         """ Atualiza retrato e caixa de selecao """

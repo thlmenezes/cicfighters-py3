@@ -24,14 +24,14 @@ class VersusScreen():
 
         # Carrega fundo da tela de versus
         self.fundo = Sprite(os.path.join(
-            '.', 'Imagens', "vsback.png"), (0, 0), False, (self.width, self.height))
+            '.', 'assets', 'Imagens', "vsback.png"), (0, 0), False, (self.width, self.height))
 
         # Carrega personagem player 1
-        self.player1 = Sprite(os.path.join('.', 'Personagens', self.jogadores[0], "vs.png"), (
+        self.player1 = Sprite(os.path.join('.', 'assets', 'Personagens', self.jogadores[0], "vs.png"), (
             0, 0), False, (self.width*0.5, self.height*0.598333333))
 
         # Carrega personagem player 2
-        self.player2 = Sprite(os.path.join('.', 'Personagens', self.jogadores[1], "vs.png"), (
+        self.player2 = Sprite(os.path.join('.', 'assets', 'Personagens', self.jogadores[1], "vs.png"), (
             0, 0), False, (self.width*0.5, self.height*0.598333333))
 
     def update(self, dtempo, eventos):
@@ -41,7 +41,8 @@ class VersusScreen():
             self.primeiraiteracao = False
             dtempo = 0
             # Som de introducao da tela de versus
-            pygame.mixer.Sound(os.path.join('.', 'Sons', "vs.wav")).play()
+            pygame.mixer.Sound(os.path.join(
+                '.', 'assets', 'Sons', "vs.wav")).play()
 
         # Cuida da animacao da tela de versus
         if not self.parou:
