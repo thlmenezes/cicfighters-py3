@@ -146,7 +146,6 @@ class GameMenu(object):
                             self.selecionadop2[0] = len(self.retratos[self.selecionadop2[1]]) - 1
                         self.retratos[self.selecionadop2[1]][self.selecionadop2[0]].seleciona(2)
                 elif (event.key == self.botoesp2[4]):
-                    print("select")
                     if not self.retratos[self.selecionadop2[1]][self.selecionadop2[0]].escolhidop2:
                         self.retratos[self.selecionadop2[1]][self.selecionadop2[0]].escolhe(2)
                 elif (event.key == self.botoesp2[5]):
