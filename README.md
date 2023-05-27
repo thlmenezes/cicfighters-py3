@@ -8,3 +8,10 @@ Instalar dependências
 ```bash
 pip install -r requirements.txt
 ```
+
+# Criando build local
+
+```bash
+pip install Nuitka
+python -m nuitka --follow-imports main.py
+```
