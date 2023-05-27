@@ -31,8 +31,16 @@ class Ringue(object):
         self.p2 = Player(self.nomes[1],(((self.screenwidth/4)*3)-120,self.screenheight - 380),controlesp2)
         self.p1.adversario = self.p2
         self.p2.adversario = self.p1
-        self.barrap1 = Barra((self.screenwidth/16,self.screenheight/16),(self.screenwidth/2)-(self.screenwidth/8),self.screenheight/32,self.p1,True)
-        self.barrap2 = Barra(((self.screenwidth/2)+(self.screenwidth/16),self.screenheight/16),(self.screenwidth/2)-(self.screenwidth/8),self.screenheight/32,self.p2,False)
+        self.barrap1 = Barra(
+                (self.screenwidth//16,self.screenheight//16),
+                (self.screenwidth//2)-(self.screenwidth//8),
+                self.screenheight//32,self.p1,
+                False)
+        self.barrap2 = Barra(
+                ((self.screenwidth//2)+(self.screenwidth//16),self.screenheight//16),
+                (self.screenwidth//2)-(self.screenwidth//8),
+                self.screenheight//32,self.p2,
+                False)
         self.sangues = []
         self.momentotenso = False
         self.vitoria = False
