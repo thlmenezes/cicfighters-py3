@@ -6,5 +6,5 @@ Atualização do jogo CiCfighters https://github.com/DaniloT/cicfighters para py
 Instalar dependências
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt -r requirements-dev.txt 
 ```
