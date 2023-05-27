@@ -9,7 +9,7 @@ recebe o width e height do frame e o fps para criar uma lista dos frames"""
     def __init__(self,
                  arquivo,
                  xxx_todo_changeme=(0, 0),
-                 fps=False,
+                 fps=None,
                  xxx_todo_changeme1=(0, 0)):
         # carrega arquivo temporariamente para quebrar em superficies
         (width, height) = xxx_todo_changeme
@@ -28,7 +28,7 @@ recebe o width e height do frame e o fps para criar uma lista dos frames"""
         linha = 0
         try:
             # TODO: stop using float as stop param
-            for i in range((superficie.get_width()/width) * (superficie.get_height()/height)):
+            for i in range(int((superficie.get_width()/width) * (superficie.get_height()/height))):
                 if esticaw and esticah:
                     self.frames.append(
                         pygame.transform.scale(
