@@ -13,5 +13,5 @@ pip install -r requirements.txt
 
 ```bash
 pip install Nuitka
-python -m nuitka --follow-imports main.py
+python -m nuitka --follow-imports cicfighters.py
 ```
