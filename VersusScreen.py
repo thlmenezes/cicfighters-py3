@@ -13,7 +13,7 @@ class VersusScreen():
         """Inicia tela de versus"""
         # Inicia alguns verificadores usados posteriormente na cena
         self.jogadores = jogadores
-        self.teclas = [pygame.K_RETURN] + jogadores[2][4:7] + jogadores[3][4:7]
+        self.teclas = [pygame.K_F11] + jogadores[2][4:7] + jogadores[3][4:7]
         self.tela = pygame.display.get_surface()
         self.area = self.tela.get_rect()
         self.width = self.tela.get_width()

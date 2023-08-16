@@ -58,7 +58,7 @@ class Ringue(object):
             elif event.type == KEYDOWN:
                 if (event.key == pygame.K_ESCAPE):
                     return self.jogadores
-                elif (event.key == pygame.K_RETURN):
+                elif (event.key == pygame.K_F11):
                     pygame.display.toggle_fullscreen()
 
         return False

@@ -7,8 +7,8 @@ import ContrEstados
 class GameEngine(object):
     """Engine de jogo principal"""
 
-    def __init__(self, windowed):
-        self.windowed = windowed
+    def __init__(self, fullscreen):
+        self.fullscreen = fullscreen
         self.inicializa()
 
     def inicializa(self,):
@@ -19,7 +19,7 @@ class GameEngine(object):
         # Inicializa tempo
         self.tempoantigo = time.time()
 
-        if self.windowed:
+        if self.fullscreen:
             self.window = pygame.display.set_mode((800, 600),
                                                   pygame.FULLSCREEN)
         else:

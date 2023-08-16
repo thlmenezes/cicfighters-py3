@@ -88,7 +88,7 @@ class GameMenu(object):
             elif event.type == pygame.KEYDOWN:
                 if (event.key == pygame.K_ESCAPE):
                     return True
-                elif (event.key == pygame.K_RETURN):
+                elif (event.key == pygame.K_F11):
                     pygame.display.toggle_fullscreen()
                 #Controles do P1                    
                 elif (event.key == self.botoesp1[3]):
