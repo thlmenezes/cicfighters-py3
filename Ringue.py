@@ -601,7 +601,7 @@ class Sangue(object):
 
     def render(self,screen):
         """ Desenha a particula na tela como um pequeno circulo """
-        pygame.draw.circle(screen,(self.cor,0,0),(int(self.x),int(self.y)),2)
+        pygame.draw.circle(screen,(0,self.cor,0),(int(self.x),int(self.y)),2)
 
     def unload(self,):
         """ decarrega elementos necessarios da classe """
