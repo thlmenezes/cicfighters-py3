@@ -2,7 +2,6 @@ import os
 import pygame
 import Sprite
 
-
 class GameMenu(object):
     """Menu de escolha de personagens"""
 

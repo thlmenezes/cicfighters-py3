@@ -22,6 +22,8 @@ class VersusScreen():
         self.parou = False
         self.primeiraiteracao = True
 
+
+
         # Carrega fundo da tela de versus
         self.fundo = Sprite(os.path.join(
             '.', 'assets', 'Imagens', "vsback.png"), (0, 0), False, (self.width, self.height))
@@ -52,15 +54,8 @@ class VersusScreen():
                 )*0.75) + (self.area.centerx - 5 - self.player1.frames[0].get_width())
                 self.parou = True
 
-        for event in eventos:
-            if event.type == QUIT:
-                return self.jogadores
-            # Eventos de teclado
-            elif event.type == KEYDOWN:
-                if (event.key == pygame.K_ESCAPE):
-                    return self.jogadores
-                elif (event.key in self.teclas):
-                    return self.jogadores
+        if self.parou == True:
+            return self.jogadores
         return False
 
     def render(self, tela):
