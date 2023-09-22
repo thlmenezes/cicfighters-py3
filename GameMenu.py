@@ -210,7 +210,7 @@ class GameMenu(object):
     def render(self,screen):
         """Renderiza os elementos da tela atual"""
         self.fundo.render(screen,(0,0))
-        screen.blit(self.font.render("Faça Sua Matrícula", True, (self.cor,0,0)),(self.postitulo[0],self.postitulo[1]))
+        screen.blit(self.font.render("PERSONAGENS", True, (self.cor,0,0)),(self.postitulo[0],self.postitulo[1]))
         for i in self.retratos:
             for n in i:
                 n.render(screen)
