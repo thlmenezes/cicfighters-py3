@@ -213,12 +213,12 @@ class Tutorial(object):
     def render(self, screen):
         """Renderiza os elementos da tela atual"""
         self.fundo.render(screen, (0, 0))
-        screen.blit(self.font.render("Faça Sua Matrícula", True, (self.cor, 0, 0)),
+        screen.blit(self.font.render("", True, (self.cor, 0, 0)),
                     (self.postitulo[0], self.postitulo[1]))
-        for i in self.retratos:
-            for n in i:
-                n.render(screen)
-
+        #for i in self.retratos:
+         #   for n in i:
+          #      n.render(screen)
+        pygame.mixer.stop()
         if self.configcontrole:
             superficieescura = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
             superficieescura.fill((0, 0, 0, 210))
