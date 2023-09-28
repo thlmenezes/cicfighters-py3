@@ -29,7 +29,7 @@ Jogador 2 utiliza, por padrão:
 
 Os controles do Jogador 2 podem ser customizados clicando em F2 e seguindo as instruções em tela
 
-Apertar Enter, coloca o jogo em tela inteira
+Apertar F11, coloca o jogo em tela inteira
 
 Apertar ESC, retorna a tela anterior (fechando o jogo caso esteja no Menu)
 
