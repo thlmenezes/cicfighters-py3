@@ -1,4 +1,6 @@
 # cicfighters-py3
+Jogo recriado pelo grupo de Python do Colégio Militar Dom Pedro II com base no "Cicfighters" - jogo criado por um grupo de alunos de ciências da computação da Universidade de Brasília (UNB) - para a feira do conhecimento de 2023 do Colégio Militar Dom Pedro II.
+
 Atualização do jogo CiCfighters https://github.com/DaniloT/cicfighters para python 3 e pygame 2.4.0
 
 # Como instalar?
