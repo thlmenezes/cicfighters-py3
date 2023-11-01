@@ -490,7 +490,56 @@ class Player(object):
                     self.caixagolpe = Rect(self.x-(LARGURA_SPRITE-COMPRIMENTO_PERNA),self.caixacorpo.bottom-150,LARGURA_SPRITE-COMPRIMENTO_PERNA,150)
                 else:
                     self.caixagolpe = Rect(self.x-(LARGURA_SPRITE-COMPRIMENTO_PERNA),self.caixacorpo.bottom-150,LARGURA_SPRITE-COMPRIMENTO_PERNA,150)
-        
+    def atualizaanimacao(self,dtempo):
+        """ atualiza animacao atual e testa se ja acabou para retornar ao estado anterior """
+        if not self.morto and self.animatual.update(dtempo):
+            if self.hp <= 0:
+                self.morto = True
+                self.abaixado = False
+                self.animatual.frameatual = len(self.animatual.frames)-1
+                random.choice(self.somcaindo).play()
+            elif self.apanhando:
+                self.especial = False
+                self.animatual = self.animacoes["golpeado"]
+            elif self.defendendo:
+                if self.abaixado: self.animatual = self.animacoes["defesa-abaixado"]
+                else: self.animatual = self.animacoes["defesa"]
+            elif self.socando:
+                if not self.pulando:
+                    self.golpecontabilizado = False
+                    self.socando = False
+                    self.caixagolpe = False
+                    if self.abaixado: self.animatual = self.animacoes["abaixado"]
+                    #elif self.pulando: self.animatual = self.animacoes["pulando"]
+                    else: self.animatual = self.animacoes["parado"]
+                else:
+                    self.animatual.frameatual = len(self.animatual.frames)-1
+            elif self.chutando:
+                if not self.pulando:
+                    self.golpecontabilizado = False
+                    self.chutando = False
+                    self.caixagolpe = False
+                    if self.abaixado: self.animatual = self.animacoes["abaixado"]
+                    #elif self.pulando: self.animatual = self.animacoes["pulando"]
+                    else: self.animatual = self.animacoes["parado"]
+                else:
+                    self.animatual.frameatual = len(self.animatual.frames)-1
+            elif self.especial:
+                self.especial = False
+                self.golpecontabilizado = False
+                if self.abaixado:
+                    self.animatual = self.animacoes["abaixado"]
+                else: self.animatual = self.animacoes["parado"]
+
+
+class Projetil(object):
+    """ Classe para projeteis arremessados pelos jogadores """
+    def __init__(self,nome):
+        """ Inicializa projetil """
+        self.animacao = Sprite(nome,(400,128),8)
+        self.screenwidth = pygame.display.get_surface().get_width()
+        self.caixacolisao = False
+        self.direita = True
 
     def update(self,dtempo):
         """ Atualiza posicao do projetil de acordo com velocidade """
