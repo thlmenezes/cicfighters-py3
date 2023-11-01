@@ -19,16 +19,17 @@ class ContrEstados(object):
     def update(self, dtempo, eventos):
         """Atualiza elementos do estado atual"""
 
-        self.retorno = self.Tela.update(dtempo, eventos)
-        if self.retorno:
+        self.retorno = self.Tela.update(dtempo, eventos)  
+        if self.retorno == pygame.QUIT:
+            return True 
+        elif not self.retorno:
+            return False
+        else:
             # Retorna algo quando a partida acaba
             # ou quando o jogador sai do menu
             if isinstance(self.Tela, Tutorial.Tutorial):
-                if self.retorno == True:
-                    return True
-                else:
-                    self.Tela.unload()
-                    self.Tela = GameMenu.GameMenu(self.retorno)
+                self.Tela.unload()
+                self.Tela = GameMenu.GameMenu()
             elif isinstance(self.Tela, VersusScreen.VersusScreen):
                 self.Tela.unload()
                 self.Tela = Ringue.Ringue(self.retorno)

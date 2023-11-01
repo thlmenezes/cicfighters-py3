@@ -82,11 +82,11 @@ class GameMenu(object):
         for event in eventos:
             #Botao de fechar
             if event.type == pygame.QUIT:
-                return True
+                return pygame.QUIT
             #Eventos de teclado
             elif event.type == pygame.KEYDOWN:
                 if (event.key == pygame.K_ESCAPE):
-                    return True
+                    return pygame.QUIT
                 elif (event.key == pygame.K_F11):
                     pygame.display.toggle_fullscreen()
                 #Controles do P1                    
